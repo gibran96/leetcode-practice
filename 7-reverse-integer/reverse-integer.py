@@ -2,7 +2,7 @@ class Solution:
     def reverse(self, x: int) -> int:
         MIN = -2147483648
         MAX = 2147483647
-
+        # updated solution
         res = 0
         while x:
             digit = int(math.fmod(x, 10))
