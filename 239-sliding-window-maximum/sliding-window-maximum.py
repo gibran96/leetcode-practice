@@ -11,22 +11,23 @@ class Solution:
         #     r += 1
         # return max_slide
 
-        max_slide = []
-        q = collections.deque()
-        l = r = 0
-        while r < len(nums):
-            while q and nums[q[-1]] < nums[r]:
-                q.pop()
+        dq = collections.deque()
+        res = []
+        for i, val in enumerate(nums):
+            while dq and nums[dq[-1]] <= val:
+                dq.pop()
             
-            q.append(r)
+            dq.append(i)
 
-            if l > q[0]:
-                q.popleft()
+            if dq[0] <= i - k:
+                dq.popleft()
 
-            if (r + 1) >= k:
-                max_slide.append(nums[q[0]])
-                l += 1
-            r += 1
-        return max_slide
+            if i >= k - 1:
+                res.append(nums[dq[0]])
+        
+        return res
+            
+
+
 
             
