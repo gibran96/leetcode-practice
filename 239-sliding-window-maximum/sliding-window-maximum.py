@@ -12,18 +12,21 @@ class Solution:
         # return max_slide
 
         max_slide = []
-        dq = collections.deque()
+        q = collections.deque()
         l = r = 0
         while r < len(nums):
-            while dq and nums[dq[-1]] < nums[r]:
-                dq.pop()
-            dq.append(r)
-
-            if l > dq[0]:
-                dq.popleft()
+            while q and nums[q[-1]] < nums[r]:
+                q.pop()
             
+            q.append(r)
+
+            if l > q[0]:
+                q.popleft()
+
             if (r + 1) >= k:
-                max_slide.append(nums[dq[0]])
-                l += 1            
-            r+= 1
+                max_slide.append(nums[q[0]])
+                l += 1
+            r += 1
         return max_slide
+
+            
