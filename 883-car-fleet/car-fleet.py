@@ -13,6 +13,7 @@ class Solution:
         #         stack.pop()
         # return len(stack)
 
+        #greedy
         pairs = sorted(zip(position, speed), reverse=True)
         fleets = 0
         cur_time = 0.0
