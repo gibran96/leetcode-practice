@@ -4,9 +4,6 @@ class Solution:
         n = len(merged_arr)
 
         if n % 2 == 0:
-            print(merged_arr)
-            print(int((n/2) - 1))
-            print(int((n/2) + 1))
             return (merged_arr[int((n/2) - 1)] + merged_arr[int((n/2))]) / 2
         else:
             return merged_arr[n // 2]
